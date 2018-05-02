@@ -15,7 +15,10 @@ class SecondFlower extends Component {
   }
 
   handleAccept = () => {
-    return this.props.navigation.navigate('Dessert') // XXX preserve state
+    return this.props.navigation.navigate('Dessert', {
+      firstFlower: this.props.navigation.state.firstFlower,
+      secondFlower: this.state[this.state.selectedFlower]
+    })
   }
 
   handleSelect = (flower) => {
