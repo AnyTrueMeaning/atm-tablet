@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Button } from 'react-native'
 
 import { StackNavigator } from 'react-navigation'
 import SamplePoem from './components/SamplePoem'
@@ -22,9 +22,14 @@ class HomeScreen extends React.Component {
     return (
       <View
         style={CommonStyles.container}
-        onPress={this._handlePress}
         >
-        <Text style={CommonStyles.h1}>HomeScreen!</Text>
+        <Text style={CommonStyles.h1}>Welcome to Project Any True Meaning</Text>
+        <Text>Love is patient. Love is free. Love is infinite. We charge no fee</Text>
+        <Button
+          onPress={this._handlePress}
+          title="Begin"
+          />
+
       </View>
     )
   }
