@@ -4,6 +4,8 @@ This repository contains/will contain a React Native app for the Any True Meanin
 platform is an Android tablet that supports USB OTG, and a generic ESC/POS USB thermal printer
 like the ones described in [this document](https://docs.google.com/document/d/1-HDqSKTvNewNk2h9ahJzc38_6R6TH5tD2p4IoA36SB4/edit?usp=sharing)
 
+[Original UI mockup](https://drive.google.com/open?id=1WvV4hAlJyf6giuAfV3dbZs3WJotcaL3Z)
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
