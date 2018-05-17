@@ -5,7 +5,7 @@
   "devDependencies": {
     "jest-expo": "26.0.0",
     "react-native-scripts": "1.13.1",
-    "react-test-renderer": "16.3.0-alpha.1"
+    "react-test-renderer": "16.3.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "eslint-plugin-react-native": "^3.2.1",
-    "expo": "^26.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0",
+    "expo": "^27.0.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-navigation": "^1.5.11"
   }
 }

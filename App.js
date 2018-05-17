@@ -1,3 +1,13 @@
+// lol please delete this when RN and expo are updated again
+import { YellowBox } from 'react-native';
+
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+])
+
+// end lol
+
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 
