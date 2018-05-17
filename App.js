@@ -10,6 +10,7 @@ YellowBox.ignoreWarnings([
 
 import React from 'react'
 import { Text, View, Button } from 'react-native'
+const Papa = require('papaparse')
 
 import { StackNavigator } from 'react-navigation'
 import SamplePoem from './components/SamplePoem'
@@ -22,6 +23,9 @@ import ShowPoem from './components/Action'
 import CallToAction from './components/CallToAction'
 
 import CommonStyles from './CommonStyles'
+
+// Yes this is synchronous BS and it should be done in a different way, PDI
+const POEM_CSV = Papa.parse(fs.readFileSync('./data/database.csv')).data; // XXX we have to use some kind of react-native asset call for this
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -49,7 +53,7 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default StackNavigator({
+const StackNav = StackNavigator({
   Home: {
     screen: HomeScreen,
   },
@@ -78,3 +82,11 @@ export default StackNavigator({
     screen: CallToAction
   }
 })
+
+export default class App extends React.Component {
+  render () {
+    return (
+      <StackNav screenProps={{database: POEM_CSV}} />
+    )
+  }
+}
