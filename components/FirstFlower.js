@@ -7,11 +7,12 @@ class FirstFlower extends Component {
   constructor (props) {
     super(props)
 
-    this.state = Obect.assign({selectedFlower: 'flowerA'}, this.newFlowers())
+    this.state = Object.assign({selectedFlower: 'flowerA'}, this.newFlowers(props))
   }
 
   newFlowers (props) {
-    const poems = (props || this.props).screenProps.database
+    console.log('props', props)
+    const poems = props.screenProps.database()
     const row1 = poems[Math.floor(Math.random() * poems.length)]
     const row2 = poems[Math.floor(Math.random() * poems.length)]
     const row3 = poems[Math.floor(Math.random() * poems.length)]
@@ -24,7 +25,7 @@ class FirstFlower extends Component {
   }
 
   handleMore = () => {
-    const flowers = this.newFlowers()
+    const flowers = this.newFlowers(this.props)
     console.log(flowers)
     this.setState(flowers)
   }

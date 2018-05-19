@@ -11,6 +11,8 @@ YellowBox.ignoreWarnings([
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 const Papa = require('papaparse')
+import Expo from 'expo'
+import AssetUtils from 'expo-asset-utils'
 
 import { StackNavigator } from 'react-navigation'
 import SamplePoem from './components/SamplePoem'
@@ -24,8 +26,25 @@ import CallToAction from './components/CallToAction'
 
 import CommonStyles from './CommonStyles'
 
-// Yes this is synchronous BS and it should be done in a different way, PDI
-const POEM_CSV = Papa.parse(fs.readFileSync('./data/database.csv')).data; // XXX we have to use some kind of react-native asset call for this
+let POEM_CSV = [[]]
+AssetUtils.resolveAsync(require('./assets/database.csv')).then(asset => {
+  console.log(asset)
+  fetch(asset.localUri)
+    .then(x => x.text())
+    .then(y => {
+      POEM_CSV = Papa.parse(y).data
+    })
+  // Papa.parse(asset.localUri, {
+  //   download: true,
+  //   complete: (results) => console.log('results', results)
+  // })
+})
+//const POEM_CSV = Papa.parse(require('./assets/database.csv')).data
+// const POEM_CSV = Papa.parse(require('./assets/database.csv')).data
+
+function database() {
+  return POEM_CSV
+}
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -86,7 +105,7 @@ const StackNav = StackNavigator({
 export default class App extends React.Component {
   render () {
     return (
-      <StackNav screenProps={{database: POEM_CSV}} />
+      <StackNav screenProps={{database: database}} />
     )
   }
 }
