@@ -10,6 +10,9 @@ YellowBox.ignoreWarnings([
 
 import React from 'react'
 import { Text, View, Button } from 'react-native'
+const Papa = require('papaparse')
+import Expo from 'expo'
+import AssetUtils from 'expo-asset-utils'
 
 import { StackNavigator } from 'react-navigation'
 import SamplePoem from './components/SamplePoem'
@@ -22,6 +25,26 @@ import ShowPoem from './components/Action'
 import CallToAction from './components/CallToAction'
 
 import CommonStyles from './CommonStyles'
+
+let POEM_CSV = [[]]
+AssetUtils.resolveAsync(require('./assets/database.csv')).then(asset => {
+  console.log(asset)
+  fetch(asset.localUri)
+    .then(x => x.text())
+    .then(y => {
+      POEM_CSV = Papa.parse(y).data
+    })
+  // Papa.parse(asset.localUri, {
+  //   download: true,
+  //   complete: (results) => console.log('results', results)
+  // })
+})
+//const POEM_CSV = Papa.parse(require('./assets/database.csv')).data
+// const POEM_CSV = Papa.parse(require('./assets/database.csv')).data
+
+function database() {
+  return POEM_CSV
+}
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -49,7 +72,7 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default StackNavigator({
+const StackNav = StackNavigator({
   Home: {
     screen: HomeScreen,
   },
@@ -78,3 +101,11 @@ export default StackNavigator({
     screen: CallToAction
   }
 })
+
+export default class App extends React.Component {
+  render () {
+    return (
+      <StackNav screenProps={{database: database}} />
+    )
+  }
+}

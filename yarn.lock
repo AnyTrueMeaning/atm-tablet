@@ -2658,6 +2658,10 @@ expect@^22.4.3:
     jest-message-util "^22.4.3"
     jest-regex-util "^22.4.3"
 
+expo-asset-utils@^0.0.4-alpha.2:
+  version "0.0.4-alpha.2"
+  resolved "https://registry.yarnpkg.com/expo-asset-utils/-/expo-asset-utils-0.0.4-alpha.2.tgz#c559a490c326cb35fcfa1362e2dc1cc1b8284b35"
+
 expo@^27.0.0:
   version "27.0.1"
   resolved "https://registry.yarnpkg.com/expo/-/expo-27.0.1.tgz#556a37121282f4509b0821d8d4e7c8a8da0c11d8"
@@ -5338,6 +5342,10 @@ pac-resolver@^3.0.0:
     ip "^1.1.5"
     netmask "^1.0.6"
     thunkify "^2.1.2"
+
+papaparse@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-4.4.0.tgz#6bcdbda80873e00cfb0bdcd7a4571c72a9a40168"
 
 param-case@^1.1.0:
   version "1.1.2"
